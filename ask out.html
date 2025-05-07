@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Will You Go Out With Me?</title>
+  <style>
+    body {
+      display: flex;
+      font-family: Arial, Helvetica, sans-serif;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+     background-color:whitesmoke ;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .yes {
+      background-color: aqua;
+      margin-bottom: 10px;
+      padding: 10px 20px;
+      font-size: 18px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .yes:hover {
+      background-color: darkgreen;
+      color: white;
+    }
+
+    .no {
+      background-color: rgb(157, 151, 180);
+      padding: 10px 20px;
+      font-size: 18px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .no:hover {
+      background-color: brown;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+<h1>WILL YOU GO OUT WITH ME?</h1>
+
+<div class="tenor-gif-embed" data-postid="12736434860027609482" data-share-method="host" data-aspect-ratio="1" data-width="30%">
+  <a href="https://tenor.com/view/mochi-mochimons-kawaii-kitty-cute-gif-12736434860027609482">Mochi Mochimons GIF</a> from 
+  <a href="https://tenor.com/search/mochi-gifs">Mochi GIFs</a>
+</div> 
+<script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+
+<a href="yes.html"><button class="yes">YES</button></a>
+<button class="no">NO</button>
+
+<script>
+  const noBtn = document.querySelector(".no");
+
+  function moveButtonAway(btn) {
+    let currentLeft = btn.offsetLeft;
+    let currentTop = btn.offsetTop;
+
+    // Move within a bigger range (randomized)
+    let moveX = (Math.random() * 300 - 150); // Moves between -150px to +150px
+    let moveY = (Math.random() * 200 - 100);  // Moves between -100px to +100px
+
+    let newLeft = currentLeft + moveX;
+    let newTop = currentTop + moveY;
+
+    // Ensure the button doesn't go off-screen
+    let maxX = window.innerWidth - btn.clientWidth;
+    let maxY = window.innerHeight - btn.clientHeight;
+
+    if (newLeft < 0) newLeft = 5;
+    if (newTop < 0) newTop = 5;
+    if (newLeft > maxX) newLeft = maxX - 5;
+    if (newTop > maxY) newTop = maxY - 5;
+
+    btn.style.position = "absolute";
+    btn.style.left = newLeft + "px";
+    btn.style.top = newTop + "px";
+  }
+
+  // Move on hover and on attempted click
+  noBtn.addEventListener("mouseover", function() {
+    moveButtonAway(this);
+  });
+
+  noBtn.addEventListener("mousedown", function(event) {
+    event.preventDefault(); // Prevent the actual click
+    moveButtonAway(this);
+  });
+</script>
+
+</body>
+</html>
